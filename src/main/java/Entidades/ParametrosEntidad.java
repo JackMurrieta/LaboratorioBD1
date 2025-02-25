@@ -38,38 +38,74 @@ public class ParametrosEntidad {
         this.idPruebaAnalisis = idPruebaAnalisis;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getIdParametroEvaluacion() {
         return idParametroEvaluacion;
     }
 
+    /**
+     *
+     * @param idParametroEvaluacion
+     */
     public void setIdParametroEvaluacion(int idParametroEvaluacion) {
         this.idParametroEvaluacion = idParametroEvaluacion;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRango() {
         return rango;
     }
 
+    /**
+     *
+     * @param rango
+     */
     public void setRango(String rango) {
         this.rango = rango;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getIdPruebaAnalisis() {
         return idPruebaAnalisis;
     }
 
+    /**
+     *
+     * @param idPruebaAnalisis
+     */
     public void setIdPruebaAnalisis(int idPruebaAnalisis) {
         this.idPruebaAnalisis = idPruebaAnalisis;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "ParametrosEntidad{" +

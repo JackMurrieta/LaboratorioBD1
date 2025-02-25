@@ -22,6 +22,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *
+ * @author Usuario
+ */
 public class PruebaAnalisisNegocio implements IPruebaAnalisisNegocio {
 
     private IPruebaAnalisisDAO pruebaDAO;

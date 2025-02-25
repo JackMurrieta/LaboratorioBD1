@@ -15,6 +15,10 @@ import Entidades.PruebaAnalisisEntidad;
 import java.sql.Connection;
 import java.util.List;
 
+/**
+ *
+ * @author Usuario
+ */
 public interface IPruebaAnalisisDAO {
 
     /**

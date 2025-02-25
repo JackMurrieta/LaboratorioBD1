@@ -18,10 +18,18 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ *
+ * @author Usuario
+ */
 public class frmAnalisisCliente extends javax.swing.JFrame {
 
     private IClienteNegocio clienteNegocio;
 
+    /**
+     *
+     * @param clienteNegocio
+     */
     public frmAnalisisCliente(IClienteNegocio clienteNegocio) {
         this.clienteNegocio = clienteNegocio;
         initComponents();
@@ -193,7 +201,11 @@ public class frmAnalisisCliente extends javax.swing.JFrame {
     private javax.swing.JTable jTableClientes;
     private javax.swing.JTextField txtBuscarCliente;
     
-      public static void main(String[] args) {
+    /**
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             IConexionBD conexionBD = new ConexionBD();
             IClienteDAO clienteDAO = new ClienteDAO(conexionBD);

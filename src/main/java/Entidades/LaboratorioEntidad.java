@@ -35,18 +35,34 @@ public class LaboratorioEntidad {
         this.direccion = direccion;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getIdLaboratorio() {
         return idLaboratorio;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDireccion() {
         return direccion;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "LaboratorioEntidad{" +

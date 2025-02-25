@@ -33,6 +33,14 @@ public class ClienteEntidad {
         this.idLaboratorio = idLaboratorio;
     }
 
+    /**
+     *
+     * @param id
+     * @param nombres
+     * @param apellidoPaterno
+     * @param apellidoMaterno
+     * @param fechaNacimiento
+     */
     public ClienteEntidad(int id, String nombres, String apellidoPaterno, String apellidoMaterno, LocalDate fechaNacimiento) {
         this.id = id;
         this.nombres = nombres;
@@ -41,30 +49,58 @@ public class ClienteEntidad {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombres() {
         return nombres;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getApellidoPaterno() {
         return apellidoPaterno;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getApellidoMaterno() {
         return apellidoMaterno;
     }
 
+    /**
+     *
+     * @return
+     */
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getIdLaboratorio() {
         return idLaboratorio;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "ClienteEntidad{" +
