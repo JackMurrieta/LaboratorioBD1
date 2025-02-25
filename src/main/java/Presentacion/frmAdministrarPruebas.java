@@ -33,6 +33,7 @@ public class frmAdministrarPruebas extends javax.swing.JFrame {
     /**
      *
      */
+    private int idLaboratorio;
     public PruebaAnalisisDTO pruebaCrear;
     private final IConexionBD conexion; // Conexión única a BD
 
@@ -42,6 +43,7 @@ public class frmAdministrarPruebas extends javax.swing.JFrame {
     public frmAdministrarPruebas() {
         initComponents();
         this.pruebaCrear=null;
+        this.idLaboratorio =  LaboratorioSession.getInstance().getIdLaboratorio();
         this.conexion = new ConexionBD(); // Crear solo UNA conexión
         cargarCategorias();
     }
@@ -238,7 +240,7 @@ public class frmAdministrarPruebas extends javax.swing.JFrame {
             }
             IPruebaAnalisisNegocio pruebaAnalisisNegocio = new PruebaAnalisisNegocio(conexion);
             // hacer dinamico el idLaboratorio en la prueba a insertar
-            PruebaAnalisisDTO nuevaPrueba = new PruebaAnalisisDTO(nombrePrueba, idCategoria, 3);
+            PruebaAnalisisDTO nuevaPrueba = new PruebaAnalisisDTO(nombrePrueba, idCategoria, this.idLaboratorio);
             // Guardar en BD y obtener ID generado
             PruebaAnalisisDTO pruebaGuardada = pruebaAnalisisNegocio.registrarPrueba(nuevaPrueba);
             if (pruebaGuardada != null) {
@@ -295,7 +297,7 @@ public class frmAdministrarPruebas extends javax.swing.JFrame {
             public void run() {
                 IConexionBD conexion = new ConexionBD();
                 Connection conn = null;
-                new frmAdministrarPruebas( ).setVisible(true);
+                new frmAdministrarPruebas().setVisible(true);
             }
         });
     }
