@@ -15,12 +15,14 @@ import Persistencia.IConexionBD;
  * @author oribi
  */
 public class frmMenuAdmin extends javax.swing.JFrame {
+    int idLaboratorio;
 
     /**
      * Creates new form frmMenuAdmin
      */
     public frmMenuAdmin() {
         initComponents();
+        
     }
 
     /**

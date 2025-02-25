@@ -27,14 +27,16 @@ import javax.swing.table.DefaultTableModel;
 public class frmAdministrarClientes extends javax.swing.JFrame {
 
     private IClienteNegocio clienteNegocio;
+    private int idLaboratorio;
 
     /**
      *
      * @param clienteNegocio
      */
     public frmAdministrarClientes(IClienteNegocio clienteNegocio) {
-        this.clienteNegocio = clienteNegocio;
         initComponents();
+        this.clienteNegocio = clienteNegocio;
+        this.idLaboratorio =  LaboratorioSession.getInstance().getIdLaboratorio();
         llenarTablaClientes();
 
     }

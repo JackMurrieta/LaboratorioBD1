@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class frmInicioSesion extends javax.swing.JFrame {
     private final IConexionBD conexionBD; // Conexión única a BD
+    private UsuarioEntidad user;
 
     /**
      * Creates new form frmInicioSesion
@@ -169,22 +170,24 @@ public class frmInicioSesion extends javax.swing.JFrame {
         
         UsuarioDAO usuarioDao = new UsuarioDAO(conexionBD);
         UsuarioEntidad usuarioEncontrado = usuarioDao.buscarUsuario(usuarioE.getUser(),contrasenaHash);
+        this.user = usuarioEncontrado;
         
-//        if (!usuarioEncontrado.verificarContrasena(contrasena)) {
-//            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
-//        }
-//        if(!usuarioEncontrado.getUser().equals(usuario)){
-//             JOptionPane.showMessageDialog(null, "Usuario incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+        if (!usuarioEncontrado.verificarContrasena(contrasena)) {
+            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(!usuarioEncontrado.getUser().equals(usuario)){
+             JOptionPane.showMessageDialog(null, "Usuario incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+        
+        }
+        if(usuarioEncontrado.getRol().equalsIgnoreCase("administrador")){
+            LaboratorioSession.getInstance().setIdLaboratorio(usuarioEncontrado.getIdLaboratorio());
+            //Cambio de ventana
+            this.dispose();
+            frmMenuAdmin menuPrincipalFrame = new frmMenuAdmin();
+            menuPrincipalFrame.setVisible(true);
+
+        }
 //        
-//        }
-//        if(usuarioEncontrado.getRol().equalsIgnoreCase("administrador")){
-//            //Cambio de ventana
-//            this.setVisible(false);
-//            frmMenuAdmin menuPrincipalFrame = new frmMenuAdmin();
-//            menuPrincipalFrame.setVisible(true);
-//
-//        }
-        
 //        //Cambio de ventana al menu capturista
 //        this.setVisible(false);
 //        frmMenuAdmin menuPrincipalFrame = new frmMenuAdmin();

@@ -27,6 +27,7 @@ public class frmDatosCliente extends javax.swing.JFrame {
 
     private IClienteNegocio clienteNegocio;
     private ClienteDTO cliente;
+    private int idLaboratorio;
 
     /**
      *
@@ -35,6 +36,7 @@ public class frmDatosCliente extends javax.swing.JFrame {
     public frmDatosCliente(IClienteNegocio clienteNegocio) {
         initComponents();
         this.clienteNegocio = clienteNegocio;
+        this.idLaboratorio =  LaboratorioSession.getInstance().getIdLaboratorio();
     }
 
     /**
@@ -57,7 +59,7 @@ public class frmDatosCliente extends javax.swing.JFrame {
         String nombre = textDatosNombreCliente.getText();
         String apellidoPaterno = textDatosApellidoPaternoCliente.getText();
         String apellidoMaterno = textDatosApellidoMaternoCliente.getText();
-        Integer idLaboratorio = 1;
+        Integer idLaboratorio = this.idLaboratorio;
         String fechaTexto = textDatosFechaNacimientoCliente.getText(); // Obtienes el texto del campo
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Asumiendo el formato "día-mes-año"
         LocalDate fechaNacimiento = LocalDate.parse(fechaTexto, formatter); // Convierte el texto a LocalDate
