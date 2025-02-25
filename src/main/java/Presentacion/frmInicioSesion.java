@@ -4,17 +4,25 @@
  */
 package Presentacion;
 
+import Entidades.UsuarioEntidad;
+import Persistencia.ConexionBD;
+import Persistencia.IConexionBD;
+import Persistencia.UsuarioDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author riosr
+ * @author Jack Murrieta
  */
 public class frmInicioSesion extends javax.swing.JFrame {
+    private final IConexionBD conexionBD; // Conexión única a BD
 
     /**
      * Creates new form frmInicioSesion
      */
     public frmInicioSesion() {
         initComponents();
+        this.conexionBD = new ConexionBD(); // Crear solo UNA conexión
     }
 
     /**
@@ -151,6 +159,21 @@ public class frmInicioSesion extends javax.swing.JFrame {
 
     private void btnInicioSesionIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesionIngresarActionPerformed
         // TODO add your handling code here:
+        // Valida en la BD el usuario y el id que tiene el usuario en la BD
+        String usuario = txtInicioSesionUsuario.getText();
+        String contrasena = txtInicioSesionContraseña.getText();
+        
+        UsuarioEntidad usuarioE = new UsuarioEntidad(usuario, contrasena);
+        // metodo setContrasena
+        UsuarioDAO usuarioDao = new UsuarioDAO(conexionBD);
+        UsuarioEntidad usuarioEncontrado = usuarioDao.buscarUsuario(usuarioE.getUser(), usuarioE.getContrasenaHash());
+        if (!usuarioEncontrado.verificarContrasena(contrasena)) {
+            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(!usuarioEncontrado.getUser().equals(usuario)){
+             JOptionPane.showMessageDialog(null, "Usuario incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+        
+        }
         
         //Cambio de ventana
         this.setVisible(false);
