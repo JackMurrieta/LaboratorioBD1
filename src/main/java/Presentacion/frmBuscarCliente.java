@@ -15,6 +15,7 @@ public class frmBuscarCliente extends javax.swing.JFrame {
      */
     public frmBuscarCliente() {
         initComponents();
+        // seleccionar un cliente para asignarle una prrueba
     }
 
     /**

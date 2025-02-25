@@ -30,5 +30,5 @@ public class RenderTabla extends DefaultTableCellRenderer {
             return btn;
         }
         return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-    }
+    } 
 }

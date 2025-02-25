@@ -12,9 +12,16 @@ import Negocio.ParametrosEvaluacionNegocio;
 import Persistencia.ConexionBD;
 import Persistencia.IConexionBD;
 import Persistencia.ParametrosEvaluacionDAO;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -23,9 +30,10 @@ import javax.swing.table.DefaultTableModel;
 public class frmAgregarParametros extends javax.swing.JFrame {
 
     private IParametrosEvaluacionNegocio parametrosNegocio;
-    private int idPruebaCreada;
+    private JTable table;
     private DefaultTableModel modeloTabla;
     private final IConexionBD conexion; // Conexión única a BD
+    private int idPruebaCreada;
 
     /**
      *
@@ -36,10 +44,92 @@ public class frmAgregarParametros extends javax.swing.JFrame {
         this.idPruebaCreada = idPruebaCreada;
         this.conexion = new ConexionBD();
 
-        modeloTabla = new DefaultTableModel();
+        modeloTabla = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column == 2;
+            }
+        };
+        modeloTabla.addColumn("ID");
         modeloTabla.addColumn("Parametro");
         modeloTabla.addColumn("Rango");
+        modeloTabla.addColumn("Eliminar");
         jTable1.setModel(modeloTabla);
+        // columna id oculta
+        jTable1.getColumnModel().getColumn(0).setMinWidth(0);
+        jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
+        jTable1.getColumnModel().getColumn(0).setWidth(0);
+        jTable1.getColumnModel().getColumn(0).setResizable(false);
+        // boton eliminar en la tabla
+        jTable1.getColumn("Eliminar").setCellRenderer(new ButtonRenderer());
+        jTable1.getColumn("Eliminar").setCellEditor(new ButtonEditor(jTable1));
+    }
+
+    class ButtonRenderer extends JButton implements TableCellRenderer {
+
+        public ButtonRenderer() {
+            setText("Eliminar");
+        }
+
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            if (isSelected) {
+                setBackground(table.getSelectionBackground());
+            } else {
+                setBackground(table.getBackground());
+            }
+            return this;
+        }
+    }
+
+// Editor para manejar la interacción con el botón
+    class ButtonEditor extends javax.swing.DefaultCellEditor {
+
+        protected JButton button;
+        private int filaSeleccionada;
+        private JTable table;
+
+        public ButtonEditor(JTable table) {
+            super(new javax.swing.JTextField());
+            this.table = table;
+            this.button = new JButton("Eliminar");
+
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    int fila = filaSeleccionada;
+                    if (fila != -1) {
+                        try {
+                            // Obtener el ID de la columna oculta (columna 0)
+                            int idParametro = (int) modeloTabla.getValueAt(fila, 0);
+
+                            // Eliminar de la base de datos
+                            ParametrosDTO paramEliminado = parametrosNegocio.eliminarParametroEnPrueba(idParametro, idPruebaCreada);
+
+                            // Mostrar mensaje de confirmación
+                            JOptionPane.showMessageDialog(
+                                    frmAgregarParametros.this,
+                                    "Parámetro eliminado: " + paramEliminado.toString(),
+                                    "Eliminación Exitosa",
+                                    JOptionPane.INFORMATION_MESSAGE
+                            );
+
+                            // Eliminar de la tabla
+                            modeloTabla.removeRow(fila);
+                        } catch (NegocioException ex) {
+                            Logger.getLogger(frmAgregarParametros.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    fireEditingStopped();  // Notificar a la tabla que terminó la edición
+                }
+            });
+        }
+
+        @Override
+        public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
+            this.filaSeleccionada = row;
+            return button;
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -183,26 +273,60 @@ public class frmAgregarParametros extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         String parametro = TextFieldParametros.getText();
         String rango = texfieldRango.getText();
-        if (!parametro.isEmpty() || !rango.isEmpty()) {
+
+        if (!parametro.isEmpty() && !rango.isEmpty()) {
             try {
-                // Registrar el parámetro en la base de datos
-                //error aqui parametro es nulo
+                // Crear DTO y registrar en BD
                 ParametrosDTO paramDTO = new ParametrosDTO(parametro, rango, this.idPruebaCreada);
                 ParametrosEvaluacionDAO paramDAO = new ParametrosEvaluacionDAO(conexion);
                 parametrosNegocio = new ParametrosEvaluacionNegocio(paramDAO);
                 ParametrosDTO paramGuardado = parametrosNegocio.registrarParametro(paramDTO);
 
-                // Agregar el parámetro y su rango en la tabla
-                modeloTabla.addRow(new Object[]{paramGuardado.getNombre(), paramGuardado.getRango()});
+                // Crear botón eliminar
+                JButton btnEliminar = new JButton("Eliminar");
 
-                // Limpiar el campo de texto después de agregar el parámetro
+                // Agregar funcionalidad al botón eliminar
+                btnEliminar.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        int fila = jTable1.getSelectedRow();
+                        if (fila != -1) {
+                            try {
+                                // Obtener el ID de la columna oculta (columna 0)
+                                int idParametro = (int) modeloTabla.getValueAt(fila, 0);
+
+                                // Eliminar de la base de datos
+                                ParametrosDTO paramEliminado = parametrosNegocio.eliminarParametroEnPrueba(idParametro, idPruebaCreada);
+
+                                // Mostrar mensaje de confirmación
+                                JOptionPane.showMessageDialog(
+                                        frmAgregarParametros.this,
+                                        "Parámetro eliminado: " + paramEliminado.toString(),
+                                        "Eliminación Exitosa",
+                                        JOptionPane.INFORMATION_MESSAGE
+                                );
+
+                                // Eliminar de la tabla
+                                modeloTabla.removeRow(fila);
+                            } catch (NegocioException ex) {
+                                Logger.getLogger(frmAgregarParametros.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                });
+
+                // Agregar fila a la tabla con el botón eliminar
+               modeloTabla.addRow(new Object[]{paramGuardado.getIdParametroEvaluacion(), paramGuardado.getNombre(), paramGuardado.getRango(), "Eliminar"});
+
+                // Limpiar los campos de texto
                 TextFieldParametros.setText("");
                 texfieldRango.setText("");
+
             } catch (NegocioException ex) {
                 Logger.getLogger(frmAgregarParametros.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            System.out.println("El campo de parámetro está vacío");
+            System.out.println("El campo de parámetro o rango está vacío");
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
