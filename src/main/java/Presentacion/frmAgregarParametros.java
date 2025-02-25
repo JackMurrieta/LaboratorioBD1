@@ -47,7 +47,7 @@ public class frmAgregarParametros extends javax.swing.JFrame {
         modeloTabla = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column == 2;
+                return column == 3;
             }
         };
         modeloTabla.addColumn("ID");

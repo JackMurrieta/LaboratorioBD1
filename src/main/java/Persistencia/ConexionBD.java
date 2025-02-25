@@ -25,7 +25,7 @@ public class ConexionBD implements IConexionBD {
     /**
      * Contraseña del usuario de la base de datos.
      */
-    private static final String CONTRASEÑA = "murrietaBD2025%";
+    private static final String CONTRASEÑA = "1234";
 
     /**
      * Dirección del servidor de la base de datos (localhost por defecto).
