@@ -115,7 +115,9 @@ public class frmMenuCapturista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCapturarPruebasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapturarPruebasActionPerformed
-        // TODO add your handling code here:
+        frmBuscarCliente n= new frmBuscarCliente();
+        n.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCapturarPruebasActionPerformed
 
     private void btnCapturarResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapturarResultadosActionPerformed
