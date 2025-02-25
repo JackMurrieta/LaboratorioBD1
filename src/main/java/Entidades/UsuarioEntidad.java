@@ -44,37 +44,22 @@ public class UsuarioEntidad {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 
     public String getUser() {
         return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
     }
 
     public String getContrasenaHash() {
         return contrasenaHash;
     }
 
-    // Método para establecer la contraseña y convertirla a hash automáticamente
-    public void setContrasena(String contrasena) {
-        this.contrasenaHash = hashPassword(contrasena);
-    }
-
     public String getRol() {
         return rol;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
 
     // Método para encriptar la contraseña con SHA-256
-    private String hashPassword(String password) {
+    public String hashPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hashBytes = md.digest(password.getBytes());
@@ -94,5 +79,11 @@ public class UsuarioEntidad {
     public boolean verificarContrasena(String contrasena) {
         return this.contrasenaHash.equals(hashPassword(contrasena));
     }
+
+    @Override
+    public String toString() {
+        return "UsuarioEntidad{" + "idUsuario=" + idUsuario + ", user=" + user + ", contrasenaHash=" + contrasenaHash + ", rol=" + rol + ", idLaboratorio=" + idLaboratorio + '}';
+    }
+    
     
 }

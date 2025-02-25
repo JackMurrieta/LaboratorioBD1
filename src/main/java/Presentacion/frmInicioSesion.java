@@ -165,20 +165,30 @@ public class frmInicioSesion extends javax.swing.JFrame {
         
         UsuarioEntidad usuarioE = new UsuarioEntidad(usuario, contrasena);
         // metodo setContrasena
+        String contrasenaHash = usuarioE.hashPassword(contrasena);
+        
         UsuarioDAO usuarioDao = new UsuarioDAO(conexionBD);
-        UsuarioEntidad usuarioEncontrado = usuarioDao.buscarUsuario(usuarioE.getUser(), usuarioE.getContrasenaHash());
-        if (!usuarioEncontrado.verificarContrasena(contrasena)) {
-            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        if(!usuarioEncontrado.getUser().equals(usuario)){
-             JOptionPane.showMessageDialog(null, "Usuario incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+        UsuarioEntidad usuarioEncontrado = usuarioDao.buscarUsuario(usuarioE.getUser(),contrasenaHash);
         
-        }
+//        if (!usuarioEncontrado.verificarContrasena(contrasena)) {
+//            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+//        }
+//        if(!usuarioEncontrado.getUser().equals(usuario)){
+//             JOptionPane.showMessageDialog(null, "Usuario incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+//        
+//        }
+//        if(usuarioEncontrado.getRol().equalsIgnoreCase("administrador")){
+//            //Cambio de ventana
+//            this.setVisible(false);
+//            frmMenuAdmin menuPrincipalFrame = new frmMenuAdmin();
+//            menuPrincipalFrame.setVisible(true);
+//
+//        }
         
-        //Cambio de ventana
-        this.setVisible(false);
-        frmMenuAdmin menuPrincipalFrame = new frmMenuAdmin();
-        menuPrincipalFrame.setVisible(true);
+//        //Cambio de ventana al menu capturista
+//        this.setVisible(false);
+//        frmMenuAdmin menuPrincipalFrame = new frmMenuAdmin();
+//        menuPrincipalFrame.setVisible(true);
     }//GEN-LAST:event_btnInicioSesionIngresarActionPerformed
 
     /**

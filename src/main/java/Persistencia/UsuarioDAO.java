@@ -45,7 +45,8 @@ public class UsuarioDAO {
                            idUsuario, 
                            user, 
                            contraseña, 
-                           rol 
+                           rol,
+                           idLaboratorio
                        FROM Usuarios 
                        WHERE user = ? AND contraseña = ?
                        """;
