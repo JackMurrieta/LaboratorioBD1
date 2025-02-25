@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  *
- * @author Usuario
+ * @author Jack Murrieta
  */
 public interface IPruebaAnalisisDAO {
 

@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Usuario
+ * @author Jack Murrieta
  */
 public class CategoriasDAO implements ICategoriasDAO {
 

@@ -6,9 +6,11 @@ package Entidades;
 
 /**
  * Representa un laboratorio clínico.
+ *
  * @author Jack Murrieta
  */
 public class LaboratorioEntidad {
+
     private int idLaboratorio;
     private String nombre;
     private String direccion;
@@ -65,10 +67,10 @@ public class LaboratorioEntidad {
      */
     @Override
     public String toString() {
-        return "LaboratorioEntidad{" +
-                "idLaboratorio=" + idLaboratorio +
-                ", nombre='" + nombre + '\'' +
-                ", direccion='" + direccion + '\'' +
-                '}';
+        return "LaboratorioEntidad{"
+                + "idLaboratorio=" + idLaboratorio
+                + ", nombre='" + nombre + '\''
+                + ", direccion='" + direccion + '\''
+                + '}';
     }
 }

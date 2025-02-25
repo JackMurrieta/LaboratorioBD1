@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Clase que almacena la información de los resultados de un análisis clínico por cliente.
- * Puede representar tanto una prueba completa como los resultados individuales de los parámetros evaluados.
- *@author Jack Murrieta
+ * Clase que almacena la información de los resultados de un análisis clínico por cliente. Puede representar tanto una prueba completa como los resultados individuales de los parámetros evaluados.
+ *
+ * @author Jack Murrieta
  */
 public class ResultadoPorCliente {
-    
+
     private String nombrePrueba;
     private int folioAnalisis;
     private String nombreCliente;
@@ -27,15 +27,15 @@ public class ResultadoPorCliente {
 
     /**
      * Constructor que inicializa un resultado de análisis con la información de la prueba y el cliente.
-     * 
+     *
      * @param nombrePrueba Nombre de la prueba realizada.
      * @param folioAnalisis Folio del análisis correspondiente.
      * @param nombreCliente Nombre del cliente.
      * @param apellidoPaterno Apellido paterno del cliente.
      * @param apellidoMaterno Apellido materno del cliente.
      */
-    public ResultadoPorCliente(String nombrePrueba, int folioAnalisis, String nombreCliente, 
-                               String apellidoPaterno, String apellidoMaterno) {
+    public ResultadoPorCliente(String nombrePrueba, int folioAnalisis, String nombreCliente,
+            String apellidoPaterno, String apellidoMaterno) {
         this.nombrePrueba = nombrePrueba;
         this.folioAnalisis = folioAnalisis;
         this.nombreCliente = nombreCliente;
@@ -46,7 +46,7 @@ public class ResultadoPorCliente {
 
     /**
      * Constructor que inicializa un resultado individual con los detalles de la prueba y del cliente.
-     * 
+     *
      * @param idResultado Identificador del resultado.
      * @param resultadoParametro Resultado obtenido para un parámetro específico.
      * @param parametro Nombre del parámetro analizado.
@@ -56,8 +56,8 @@ public class ResultadoPorCliente {
      * @param apellidoPaterno Apellido paterno del cliente.
      * @param apellidoMaterno Apellido materno del cliente.
      */
-    public ResultadoPorCliente(int idResultado, String resultadoParametro, String parametro, String rango, 
-                               int folioAnalisis, String nombreCliente, String apellidoPaterno, String apellidoMaterno) {
+    public ResultadoPorCliente(int idResultado, String resultadoParametro, String parametro, String rango,
+            int folioAnalisis, String nombreCliente, String apellidoPaterno, String apellidoMaterno) {
         this.idResultado = idResultado;
         this.resultadoParametro = resultadoParametro;
         this.parametro = parametro;
@@ -70,7 +70,7 @@ public class ResultadoPorCliente {
 
     /**
      * Agrega un resultado a la lista de resultados del análisis.
-     * 
+     *
      * @param resultado Objeto {@link ResultadoPorCliente} que representa un resultado individual.
      */
     public void agregarResultado(ResultadoPorCliente resultado) {
@@ -78,10 +78,9 @@ public class ResultadoPorCliente {
     }
 
     // Getters
-
     /**
      * Obtiene el nombre de la prueba realizada.
-     * 
+     *
      * @return Nombre de la prueba.
      */
     public String getNombrePrueba() {
@@ -90,7 +89,7 @@ public class ResultadoPorCliente {
 
     /**
      * Obtiene el folio del análisis.
-     * 
+     *
      * @return Folio del análisis.
      */
     public int getFolioAnalisis() {
@@ -99,7 +98,7 @@ public class ResultadoPorCliente {
 
     /**
      * Obtiene el nombre del cliente.
-     * 
+     *
      * @return Nombre del cliente.
      */
     public String getNombreCliente() {
@@ -108,7 +107,7 @@ public class ResultadoPorCliente {
 
     /**
      * Obtiene el apellido paterno del cliente.
-     * 
+     *
      * @return Apellido paterno del cliente.
      */
     public String getApellidoPaterno() {
@@ -117,7 +116,7 @@ public class ResultadoPorCliente {
 
     /**
      * Obtiene el apellido materno del cliente.
-     * 
+     *
      * @return Apellido materno del cliente.
      */
     public String getApellidoMaterno() {
@@ -126,7 +125,7 @@ public class ResultadoPorCliente {
 
     /**
      * Obtiene la lista de resultados del análisis.
-     * 
+     *
      * @return Lista de resultados.
      */
     public List<ResultadoPorCliente> getResultados() {
@@ -135,7 +134,7 @@ public class ResultadoPorCliente {
 
     /**
      * Obtiene el identificador del resultado.
-     * 
+     *
      * @return ID del resultado.
      */
     public int getIdResultado() {
@@ -144,7 +143,7 @@ public class ResultadoPorCliente {
 
     /**
      * Obtiene el valor del resultado para un parámetro específico.
-     * 
+     *
      * @return Resultado del parámetro.
      */
     public String getResultadoParametro() {
@@ -153,7 +152,7 @@ public class ResultadoPorCliente {
 
     /**
      * Obtiene el nombre del parámetro analizado.
-     * 
+     *
      * @return Nombre del parámetro.
      */
     public String getParametro() {
@@ -162,7 +161,7 @@ public class ResultadoPorCliente {
 
     /**
      * Obtiene el rango de referencia del parámetro analizado.
-     * 
+     *
      * @return Rango de referencia del parámetro.
      */
     public String getRango() {
@@ -171,22 +170,22 @@ public class ResultadoPorCliente {
 
     /**
      * Retorna una representación en cadena del objeto con sus atributos.
-     * 
+     *
      * @return Representación en cadena de los datos del resultado por cliente.
      */
     @Override
     public String toString() {
-        return "ResultadoPorCliente{" +
-                "nombrePrueba='" + nombrePrueba + '\'' +
-                ", folioAnalisis=" + folioAnalisis +
-                ", nombreCliente='" + nombreCliente + '\'' +
-                ", apellidoPaterno='" + apellidoPaterno + '\'' +
-                ", apellidoMaterno='" + apellidoMaterno + '\'' +
-                ", idResultado=" + idResultado +
-                ", resultadoParametro='" + resultadoParametro + '\'' +
-                ", parametro='" + parametro + '\'' +
-                ", rango='" + rango + '\'' +
-                ", resultados=" + resultados +
-                '}';
+        return "ResultadoPorCliente{"
+                + "nombrePrueba='" + nombrePrueba + '\''
+                + ", folioAnalisis=" + folioAnalisis
+                + ", nombreCliente='" + nombreCliente + '\''
+                + ", apellidoPaterno='" + apellidoPaterno + '\''
+                + ", apellidoMaterno='" + apellidoMaterno + '\''
+                + ", idResultado=" + idResultado
+                + ", resultadoParametro='" + resultadoParametro + '\''
+                + ", parametro='" + parametro + '\''
+                + ", rango='" + rango + '\''
+                + ", resultados=" + resultados
+                + '}';
     }
 }

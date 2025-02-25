@@ -1,13 +1,14 @@
 package Entidades;
 
 import java.time.LocalDateTime;
+
 /**
- * Representa un análisis clínico realizado a un cliente.
- * Contiene información sobre la fecha y hora del análisis, el cliente y su folio.
- * 
+ * Representa un análisis clínico realizado a un cliente. Contiene información sobre la fecha y hora del análisis, el cliente y su folio.
+ *
  * @author Jack Murrieta
  */
 public class AnalisisClienteEntidad {
+
     private int idAnalisisCliente; // Identificador único del análisis clínico
     private int folio; // Número de folio del análisis
     private LocalDateTime fechaYhoraCaptura; // Fecha y hora en la que se realizó el análisis
@@ -127,11 +128,11 @@ public class AnalisisClienteEntidad {
      */
     @Override
     public String toString() {
-        return "AnalisisClienteEntidad{" +
-               "idAnalisisCliente=" + idAnalisisCliente +
-               ", folio=" + folio +
-               ", fechaYhoraCaptura=" + fechaYhoraCaptura +
-               ", idCliente=" + idCliente +
-               '}';
+        return "AnalisisClienteEntidad{"
+                + "idAnalisisCliente=" + idAnalisisCliente
+                + ", folio=" + folio
+                + ", fechaYhoraCaptura=" + fechaYhoraCaptura
+                + ", idCliente=" + idCliente
+                + '}';
     }
 }

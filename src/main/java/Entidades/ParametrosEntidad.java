@@ -2,9 +2,11 @@ package Entidades;
 
 /**
  * Representa un parámetro de evaluación asociado a una prueba de análisis.
+ *
  * @author Jack Murrieta
  */
 public class ParametrosEntidad {
+
     private int idParametroEvaluacion;
     private String nombre;
     private String rango;
@@ -108,12 +110,11 @@ public class ParametrosEntidad {
      */
     @Override
     public String toString() {
-        return "ParametrosEntidad{" +
-                "idParametroEvaluacion=" + idParametroEvaluacion +
-                ", nombre='" + nombre + '\'' +
-                ", rango='" + rango + '\'' +
-                ", idPruebaAnalisis=" + idPruebaAnalisis +
-                '}';
+        return "ParametrosEntidad{"
+                + "idParametroEvaluacion=" + idParametroEvaluacion
+                + ", nombre='" + nombre + '\''
+                + ", rango='" + rango + '\''
+                + ", idPruebaAnalisis=" + idPruebaAnalisis
+                + '}';
     }
 }
-

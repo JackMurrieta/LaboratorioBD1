@@ -28,6 +28,10 @@ public class frmAdministrarClientes extends javax.swing.JFrame {
 
     private IClienteNegocio clienteNegocio;
 
+    /**
+     *
+     * @param clienteNegocio
+     */
     public frmAdministrarClientes(IClienteNegocio clienteNegocio) {
         this.clienteNegocio = clienteNegocio;
         initComponents();
@@ -98,6 +102,10 @@ public class frmAdministrarClientes extends javax.swing.JFrame {
         });
     }
 
+    /**
+     *
+     * @param cliente
+     */
     public void validarBuscarCliente(ClienteDTO cliente) {
         if (cliente != null) {
             obtenerDatos(cliente);

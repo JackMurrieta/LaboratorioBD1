@@ -27,17 +27,20 @@ public class frmAgregarParametros extends javax.swing.JFrame {
     private DefaultTableModel modeloTabla;
     private final IConexionBD conexion; // Conexión única a BD
 
+    /**
+     *
+     * @param idPruebaCreada
+     */
     public frmAgregarParametros(int idPruebaCreada) {
         initComponents();
-        this.idPruebaCreada=idPruebaCreada;
+        this.idPruebaCreada = idPruebaCreada;
         this.conexion = new ConexionBD();
-        
+
         modeloTabla = new DefaultTableModel();
         modeloTabla.addColumn("Parametro");
         modeloTabla.addColumn("Rango");
-        jTable1.setModel(modeloTabla); 
+        jTable1.setModel(modeloTabla);
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -178,26 +181,26 @@ public class frmAgregarParametros extends javax.swing.JFrame {
     }//GEN-LAST:event_TextFieldParametrosActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-       String parametro = TextFieldParametros.getText();
-       String rango = texfieldRango.getText();
-        if (!parametro.isEmpty()|| !rango.isEmpty()) {
-           try {
-               // Registrar el parámetro en la base de datos
-               //error aqui parametro es nulo
-               ParametrosDTO paramDTO = new ParametrosDTO(parametro, rango, this.idPruebaCreada);
-               ParametrosEvaluacionDAO paramDAO = new ParametrosEvaluacionDAO(conexion);
-               parametrosNegocio = new ParametrosEvaluacionNegocio(paramDAO);
-               ParametrosDTO paramGuardado = parametrosNegocio.registrarParametro(paramDTO);
-               
-               // Agregar el parámetro y su rango en la tabla
-               modeloTabla.addRow(new Object[]{paramGuardado.getNombre(), paramGuardado.getRango()});
-               
-               // Limpiar el campo de texto después de agregar el parámetro
-               TextFieldParametros.setText("");
-               texfieldRango.setText("");
-           } catch (NegocioException ex) {
-               Logger.getLogger(frmAgregarParametros.class.getName()).log(Level.SEVERE, null, ex);
-           }
+        String parametro = TextFieldParametros.getText();
+        String rango = texfieldRango.getText();
+        if (!parametro.isEmpty() || !rango.isEmpty()) {
+            try {
+                // Registrar el parámetro en la base de datos
+                //error aqui parametro es nulo
+                ParametrosDTO paramDTO = new ParametrosDTO(parametro, rango, this.idPruebaCreada);
+                ParametrosEvaluacionDAO paramDAO = new ParametrosEvaluacionDAO(conexion);
+                parametrosNegocio = new ParametrosEvaluacionNegocio(paramDAO);
+                ParametrosDTO paramGuardado = parametrosNegocio.registrarParametro(paramDTO);
+
+                // Agregar el parámetro y su rango en la tabla
+                modeloTabla.addRow(new Object[]{paramGuardado.getNombre(), paramGuardado.getRango()});
+
+                // Limpiar el campo de texto después de agregar el parámetro
+                TextFieldParametros.setText("");
+                texfieldRango.setText("");
+            } catch (NegocioException ex) {
+                Logger.getLogger(frmAgregarParametros.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             System.out.println("El campo de parámetro está vacío");
         }
@@ -216,7 +219,6 @@ public class frmAgregarParametros extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AgregarParametros;
     private javax.swing.JLabel Parametros;

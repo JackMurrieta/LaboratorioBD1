@@ -4,9 +4,11 @@ import java.time.LocalDate;
 
 /**
  * Representa un cliente que se somete a análisis clínicos en un laboratorio.
+ *
  * @author Jack Murrieta
  */
 public class ClienteEntidad {
+
     private int id;
     private String nombres;
     private String apellidoPaterno;
@@ -103,13 +105,13 @@ public class ClienteEntidad {
      */
     @Override
     public String toString() {
-        return "ClienteEntidad{" +
-                "id=" + id +
-                ", nombres='" + nombres + '\'' +
-                ", apellidoPaterno='" + apellidoPaterno + '\'' +
-                ", apellidoMaterno='" + apellidoMaterno + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                ", idLaboratorio=" + idLaboratorio +
-                '}';
+        return "ClienteEntidad{"
+                + "id=" + id
+                + ", nombres='" + nombres + '\''
+                + ", apellidoPaterno='" + apellidoPaterno + '\''
+                + ", apellidoMaterno='" + apellidoMaterno + '\''
+                + ", fechaNacimiento=" + fechaNacimiento
+                + ", idLaboratorio=" + idLaboratorio
+                + '}';
     }
 }

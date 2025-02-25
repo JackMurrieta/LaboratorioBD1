@@ -5,21 +5,20 @@
 package Entidades;
 
 /**
- * Representa una entidad que almacena los resultados de un análisis clínico realizado a un cliente.
- * Contiene información sobre el resultado del parámetro evaluado, el identificador del análisis
- * y el identificador del parámetro evaluado.
+ * Representa una entidad que almacena los resultados de un análisis clínico realizado a un cliente. Contiene información sobre el resultado del parámetro evaluado, el identificador del análisis y el identificador del parámetro evaluado.
+ *
  * @author Jack Murrieta
  */
 public class ResultadoEntidad {
 
     private int idResultado;
-    private String resultadoParametro;  
-    private int idParametroEvaluacion; 
+    private String resultadoParametro;
+    private int idParametroEvaluacion;
     private int idAnalisisCliente;
-    
+
     /**
      * Constructor para crear un resultado sin ID, utilizado al guardar un nuevo resultado en la base de datos.
-     * 
+     *
      * @param resultadoParametro Valor del resultado obtenido en la evaluación.
      * @param idParametroEvaluacion Identificador del parámetro evaluado.
      * @param idAnalisisCliente Identificador del análisis al que pertenece el resultado.
@@ -29,10 +28,10 @@ public class ResultadoEntidad {
         this.idParametroEvaluacion = idParametroEvaluacion;
         this.idAnalisisCliente = idAnalisisCliente;
     }
-    
+
     /**
      * Constructor que inicializa un resultado con todos sus atributos, incluyendo su ID.
-     * 
+     *
      * @param idResultado Identificador único del resultado.
      * @param resultadoParametro Valor del resultado obtenido en la evaluación.
      * @param idParametroEvaluacion Identificador del parámetro evaluado.
@@ -47,7 +46,7 @@ public class ResultadoEntidad {
 
     /**
      * Obtiene el identificador único del resultado.
-     * 
+     *
      * @return ID del resultado.
      */
     public int getIdResultado() {
@@ -56,7 +55,7 @@ public class ResultadoEntidad {
 
     /**
      * Establece el identificador del resultado.
-     * 
+     *
      * @param idResultado ID del resultado.
      */
     public void setIdResultado(int idResultado) {
@@ -65,7 +64,7 @@ public class ResultadoEntidad {
 
     /**
      * Obtiene el valor del resultado obtenido en la evaluación.
-     * 
+     *
      * @return Valor del resultado.
      */
     public String getResultadoParametro() {
@@ -74,7 +73,7 @@ public class ResultadoEntidad {
 
     /**
      * Establece el valor del resultado obtenido en la evaluación.
-     * 
+     *
      * @param resultadoParametro Valor del resultado.
      */
     public void setResultadoParametro(String resultadoParametro) {
@@ -83,7 +82,7 @@ public class ResultadoEntidad {
 
     /**
      * Obtiene el identificador del parámetro evaluado.
-     * 
+     *
      * @return ID del parámetro evaluado.
      */
     public int getIdParametroEvaluacion() {
@@ -92,7 +91,7 @@ public class ResultadoEntidad {
 
     /**
      * Establece el identificador del parámetro evaluado.
-     * 
+     *
      * @param idParametroEvaluacion ID del parámetro evaluado.
      */
     public void setIdParametroEvaluacion(int idParametroEvaluacion) {
@@ -101,7 +100,7 @@ public class ResultadoEntidad {
 
     /**
      * Obtiene el identificador del análisis al que pertenece el resultado.
-     * 
+     *
      * @return ID del análisis de cliente.
      */
     public int getIdAnalisisCliente() {
@@ -110,7 +109,7 @@ public class ResultadoEntidad {
 
     /**
      * Establece el identificador del análisis al que pertenece el resultado.
-     * 
+     *
      * @param idAnalisisCliente ID del análisis de cliente.
      */
     public void setIdAnalisisCliente(int idAnalisisCliente) {
@@ -119,16 +118,16 @@ public class ResultadoEntidad {
 
     /**
      * Retorna una representación en cadena del objeto con sus atributos.
-     * 
+     *
      * @return Representación en cadena de los datos del resultado.
      */
     @Override
     public String toString() {
-        return "ResultadoEntidad{" + 
-                "idResultado=" + idResultado + 
-                ", resultadoParametro='" + resultadoParametro + '\'' +
-                ", idParametroEvaluacion=" + idParametroEvaluacion + 
-                ", idAnalisisCliente=" + idAnalisisCliente + 
-                '}';
+        return "ResultadoEntidad{"
+                + "idResultado=" + idResultado
+                + ", resultadoParametro='" + resultadoParametro + '\''
+                + ", idParametroEvaluacion=" + idParametroEvaluacion
+                + ", idAnalisisCliente=" + idAnalisisCliente
+                + '}';
     }
 }

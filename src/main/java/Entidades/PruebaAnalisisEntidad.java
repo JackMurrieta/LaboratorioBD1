@@ -4,8 +4,8 @@
 package Entidades;
 
 /**
- * Representa una prueba de análisis clínico que se realiza en un laboratorio.
- * Contiene información sobre su identificador, nombre, categoría y laboratorio asociado.
+ * Representa una prueba de análisis clínico que se realiza en un laboratorio. Contiene información sobre su identificador, nombre, categoría y laboratorio asociado.
+ *
  * @author Jack Murrieta
  */
 public class PruebaAnalisisEntidad {
@@ -18,11 +18,12 @@ public class PruebaAnalisisEntidad {
     /**
      * Constructor vacío para la creación de una instancia sin inicializar atributos.
      */
-    public PruebaAnalisisEntidad() {}
+    public PruebaAnalisisEntidad() {
+    }
 
     /**
      * Constructor que inicializa una prueba de análisis con todos sus atributos.
-     * 
+     *
      * @param idPruebaAnalisis Identificador único de la prueba de análisis.
      * @param nombre Nombre de la prueba de análisis.
      * @param idCategoria Identificador de la categoría a la que pertenece la prueba.
@@ -37,7 +38,7 @@ public class PruebaAnalisisEntidad {
 
     /**
      * Obtiene el identificador único de la prueba de análisis.
-     * 
+     *
      * @return ID de la prueba de análisis.
      */
     public int getIdPruebaAnalisis() {
@@ -46,7 +47,7 @@ public class PruebaAnalisisEntidad {
 
     /**
      * Establece el identificador de la prueba de análisis.
-     * 
+     *
      * @param idPruebaAnalisis ID de la prueba de análisis.
      */
     public void setIdPruebaAnalisis(int idPruebaAnalisis) {
@@ -55,7 +56,7 @@ public class PruebaAnalisisEntidad {
 
     /**
      * Obtiene el nombre de la prueba de análisis.
-     * 
+     *
      * @return Nombre de la prueba.
      */
     public String getNombre() {
@@ -64,7 +65,7 @@ public class PruebaAnalisisEntidad {
 
     /**
      * Establece el nombre de la prueba de análisis.
-     * 
+     *
      * @param nombre Nombre de la prueba.
      */
     public void setNombre(String nombre) {
@@ -73,7 +74,7 @@ public class PruebaAnalisisEntidad {
 
     /**
      * Obtiene el identificador de la categoría a la que pertenece la prueba.
-     * 
+     *
      * @return ID de la categoría.
      */
     public int getIdCategoria() {
@@ -82,7 +83,7 @@ public class PruebaAnalisisEntidad {
 
     /**
      * Establece el identificador de la categoría a la que pertenece la prueba.
-     * 
+     *
      * @param idCategoria ID de la categoría.
      */
     public void setIdCategoria(int idCategoria) {
@@ -91,7 +92,7 @@ public class PruebaAnalisisEntidad {
 
     /**
      * Obtiene el identificador del laboratorio donde se realiza la prueba.
-     * 
+     *
      * @return ID del laboratorio.
      */
     public int getIdLaboratorio() {
@@ -100,7 +101,7 @@ public class PruebaAnalisisEntidad {
 
     /**
      * Establece el identificador del laboratorio donde se realiza la prueba.
-     * 
+     *
      * @param idLaboratorio ID del laboratorio.
      */
     public void setIdLaboratorio(int idLaboratorio) {
@@ -109,16 +110,16 @@ public class PruebaAnalisisEntidad {
 
     /**
      * Retorna una representación en cadena del objeto con sus atributos.
-     * 
+     *
      * @return Representación en cadena de la prueba de análisis.
      */
     @Override
     public String toString() {
-        return "PruebaAnalisis{" + 
-                "idPruebaAnalisis=" + idPruebaAnalisis + 
-                ", nombre='" + nombre + '\'' +
-                ", idCategoria=" + idCategoria + 
-                ", idLaboratorio=" + idLaboratorio + 
-                '}';
+        return "PruebaAnalisis{"
+                + "idPruebaAnalisis=" + idPruebaAnalisis
+                + ", nombre='" + nombre + '\''
+                + ", idCategoria=" + idCategoria
+                + ", idLaboratorio=" + idLaboratorio
+                + '}';
     }
 }

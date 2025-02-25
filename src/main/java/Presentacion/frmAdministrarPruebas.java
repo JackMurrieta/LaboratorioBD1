@@ -30,9 +30,15 @@ import javax.swing.JOptionPane;
  */
 public class frmAdministrarPruebas extends javax.swing.JFrame {
   
+    /**
+     *
+     */
     public PruebaAnalisisDTO pruebaCrear;
     private final IConexionBD conexion; // Conexión única a BD
 
+    /**
+     *
+     */
     public frmAdministrarPruebas() {
         initComponents();
         this.pruebaCrear=null;

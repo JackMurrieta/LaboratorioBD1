@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Usuario
+ * @author Jack Murrieta
  */
 public class frmAnalisisCliente extends javax.swing.JFrame {
 

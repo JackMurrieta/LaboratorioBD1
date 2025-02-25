@@ -27,6 +27,10 @@ import java.util.logging.Logger;
 public class ResultadoDAO implements IResultados {
         private IConexionBD conexionBD;
     
+    /**
+     *
+     * @param conexion
+     */
     public ResultadoDAO(ConexionBD conexion) {
         this.conexionBD = new ConexionBD(); 
     }
@@ -66,6 +70,12 @@ public class ResultadoDAO implements IResultados {
 
     }
 
+    /**
+     *
+     * @param idCliente
+     * @return
+     * @throws PersistenciaException
+     */
     public List<ResultadoPorCliente> obtenerResultadosPorCliente(int idCliente) throws PersistenciaException {
         List<ResultadoPorCliente> listaResultados = new ArrayList<>();
 
