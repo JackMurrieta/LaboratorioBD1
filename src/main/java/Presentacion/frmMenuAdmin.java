@@ -80,6 +80,11 @@ public class frmMenuAdmin extends javax.swing.JFrame {
 
         btnCerrarSesion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCerrarSesion.setText("Cerrar Sesion");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -168,6 +173,12 @@ public class frmMenuAdmin extends javax.swing.JFrame {
         frmAdministrarClientes administrarClientesFrame = new frmAdministrarClientes(clienteNegocio);
         administrarClientesFrame.setVisible(true);
     }//GEN-LAST:event_btnAdministrarClientesActionPerformed
+
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+       frmInicioSesion n = new frmInicioSesion();
+       n.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
