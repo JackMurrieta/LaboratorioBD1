@@ -43,7 +43,11 @@ public class frmAdministrarClientes extends javax.swing.JFrame {
 
     private void llenarTablaClientes() {
         try {
+            
             List<TablaClienteDTO> clientesLista = clienteNegocio.buscarClientes();
+            if(clientesLista == null){
+                return;
+            }
 
             DefaultTableModel modelo = new DefaultTableModel() {
                 public boolean isCellEditable(int row, int column) {
@@ -325,13 +329,12 @@ public class frmAdministrarClientes extends javax.swing.JFrame {
 
     private void btnAdministrarClientesNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministrarClientesNuevoClienteActionPerformed
         // Ocultar la ventana actual
-        this.setVisible(false);
 
         // Crear la conexión y negocio del cliente (si ya tienes una instancia, úsala en lugar de crear una nueva)
         IConexionBD conexionBD = new ConexionBD();
         ClienteDAO clienteDAO = new ClienteDAO(conexionBD);
         IClienteNegocio clienteNegocio = new ClienteNegocio(clienteDAO);
-
+        this.dispose();
         // Crear y mostrar el nuevo frame pasando el objeto clienteNegocio
         frmDatosCliente frmDatosCliente = new frmDatosCliente(clienteNegocio);
         frmDatosCliente.setVisible(true);

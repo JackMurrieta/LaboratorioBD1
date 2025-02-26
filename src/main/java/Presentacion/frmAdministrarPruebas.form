@@ -47,7 +47,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="btnRegresar" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnRegresar" min="-2" pref="96" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnAgregarParametros" min="-2" pref="195" max="-2" attributes="0"/>
                       </Group>
@@ -101,8 +101,8 @@
                   <Component id="btnGuardar" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnRegresar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAgregarParametros" alignment="3" pref="31" max="32767" attributes="0"/>
+                      <Component id="btnRegresar" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="btnAgregarParametros" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>

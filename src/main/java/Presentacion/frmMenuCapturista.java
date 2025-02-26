@@ -126,8 +126,9 @@ public class frmMenuCapturista extends javax.swing.JFrame {
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         frmInicioSesion r= new frmInicioSesion();
-        r.setVisible(true);
         this.dispose();
+        r.setVisible(true);
+        
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     /**

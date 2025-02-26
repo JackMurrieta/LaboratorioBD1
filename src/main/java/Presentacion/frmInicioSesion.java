@@ -172,13 +172,10 @@ public class frmInicioSesion extends javax.swing.JFrame {
         UsuarioEntidad usuarioEncontrado = usuarioDao.buscarUsuario(usuarioE.getUser(),contrasenaHash);
         this.user = usuarioEncontrado;
         
-        if (!usuarioEncontrado.verificarContrasena(contrasena)) {
-            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+        if (usuarioEncontrado == null) {
+            JOptionPane.showMessageDialog(null, "Usuario no se encuentra en la Base de Datos", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        if(!usuarioEncontrado.getUser().equals(usuario)){
-             JOptionPane.showMessageDialog(null, "Usuario incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
-        
-        }
+  
         if(usuarioEncontrado.getRol().equalsIgnoreCase("administrador")){
             LaboratorioSession.getInstance().setIdLaboratorio(usuarioEncontrado.getIdLaboratorio());
             //Cambio de ventana
@@ -187,11 +184,12 @@ public class frmInicioSesion extends javax.swing.JFrame {
             menuPrincipalFrame.setVisible(true);
 
         }
-//        
-//        //Cambio de ventana al menu capturista
-//        this.setVisible(false);
-//        frmMenuAdmin menuPrincipalFrame = new frmMenuAdmin();
-//        menuPrincipalFrame.setVisible(true);
+        
+        else if (usuarioEncontrado.getRol().equalsIgnoreCase("capturista")){
+            this.dispose();
+            frmMenuCapturista menuCapturista = new frmMenuCapturista();
+            menuCapturista.setVisible(true);
+        }
     }//GEN-LAST:event_btnInicioSesionIngresarActionPerformed
 
     /**
