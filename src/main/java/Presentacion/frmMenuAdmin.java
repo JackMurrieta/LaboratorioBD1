@@ -175,16 +175,14 @@ public class frmMenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdministrarClientesActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
-<<<<<<< Updated upstream
+
        frmInicioSesion n = new frmInicioSesion();
        n.setVisible(true);
        this.dispose();
-=======
         // TODO add your handling code here:
         frmInicioSesion login = new frmInicioSesion();
         this.dispose();
         login.setVisible(true);
->>>>>>> Stashed changes
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     /**
