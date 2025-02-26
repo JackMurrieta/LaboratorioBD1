@@ -15,7 +15,7 @@ import Persistencia.IConexionBD;
  * @author oribi
  */
 public class frmMenuAdmin extends javax.swing.JFrame {
-    int idLaboratorio;
+    int idLaboratorios;
 
     /**
      * Creates new form frmMenuAdmin
@@ -162,7 +162,6 @@ public class frmMenuAdmin extends javax.swing.JFrame {
 
     private void btnAdministrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministrarClientesActionPerformed
         // Ocultar la ventana actual
-        this.dispose();
 
         // Crear la conexión y negocio del cliente (si ya tienes una instancia, úsala en lugar de crear una nueva)
         IConexionBD conexionBD = new ConexionBD();
@@ -172,12 +171,20 @@ public class frmMenuAdmin extends javax.swing.JFrame {
         // Crear y mostrar el nuevo frame pasando el objeto clienteNegocio
         frmAdministrarClientes administrarClientesFrame = new frmAdministrarClientes(clienteNegocio);
         administrarClientesFrame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAdministrarClientesActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+<<<<<<< Updated upstream
        frmInicioSesion n = new frmInicioSesion();
        n.setVisible(true);
        this.dispose();
+=======
+        // TODO add your handling code here:
+        frmInicioSesion login = new frmInicioSesion();
+        this.dispose();
+        login.setVisible(true);
+>>>>>>> Stashed changes
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     /**
